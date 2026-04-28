@@ -10,6 +10,14 @@ export default defineConfig({
   base: '/docs/',
   cleanUrls: true,
 
+  // Synced READMEs may reference repo-relative files (./config.lua, ./sql/install.sql)
+  // that don't exist in the docs site context. Don't fail the build for those.
+  ignoreDeadLinks: [
+    /^\.\/.+\.lua$/,
+    /^\.\/sql\//,
+    /^\.\/config\.lua$/,
+  ],
+
   head: [
     ['link', { rel: 'icon', href: '/docs/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#7c2d12' }],
