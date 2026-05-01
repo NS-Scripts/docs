@@ -1,4 +1,4 @@
-﻿# ns-lib
+# ns-lib
 
 Cross-framework abstraction layer for FiveM and RedM resources.
 

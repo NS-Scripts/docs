@@ -1,4 +1,4 @@
-﻿# NS-Scripts Docs
+# NS-Scripts Docs
 
 Documentation site for the [NS-Scripts](https://github.com/NS-Scripts) FiveM/RedM script ecosystem.
 

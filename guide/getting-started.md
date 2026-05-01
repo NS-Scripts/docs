@@ -1,4 +1,4 @@
-﻿# Genel bakış
+# Genel bakış
 
 **NS-Scripts**, FiveM ve RedM (RDR3) sunucuları için cross-framework çalışan bir script ekosistemi. Hedef: tek kod tabanı VORP, RSG-Core, RedEM:RP, ESX ve QBCore'da değiştirmeden çalışsın.
 

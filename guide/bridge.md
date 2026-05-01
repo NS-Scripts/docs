@@ -1,4 +1,4 @@
-﻿# Bridge mimarisi
+# Bridge mimarisi
 
 `ns-lib`, FiveM/RedM script'lerinin framework-bağımsız çalışmasını sağlayan bir abstraction layer.
 

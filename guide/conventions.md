@@ -1,4 +1,4 @@
-﻿# Convention'lar
+# Convention'lar
 
 Bu org'daki tüm script'lerin uyduğu kod ve yapı standartları.
 
