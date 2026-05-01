@@ -1,6 +1,6 @@
-# redm-vineyard
+﻿# ns-vineyard
 
-Üzüm yetiştirme + şarap üretim sistemi. Cross-framework via [mr-bridge](https://github.com/Mr-RedM-Scripts/mr-bridge).
+Üzüm yetiştirme + şarap üretim sistemi. Cross-framework via [ns-lib](https://github.com/NS-Scripts/ns-lib).
 
 ## Akış
 
@@ -15,16 +15,16 @@
 
 ## Gereksinimler
 
-- **mr-bridge** (zorunlu) — herhangi bir desteklenen framework çalışıyor olmalı (VORP, RSG-Core, RedEM:RP, ESX, QBCore)
+- **ns-lib** (zorunlu) — herhangi bir desteklenen framework çalışıyor olmalı (VORP, RSG-Core, RedEM:RP, ESX, QBCore)
 - **oxmysql** veya **mysql-async**
 - (Önerilen) **ox_lib** — daha güzel notify
 
 ## Kurulum
 
-1. `resources/redm-vineyard/` altına bu klasörü kopyala
+1. `resources/ns-vineyard/` altına bu klasörü kopyala
 2. `sql/install.sql` dosyasını veritabanına uygula
 3. Aşağıdaki itemleri framework'ünün item DB'sine ekle (bkz. [Items](#items))
-4. `server.cfg`'ye `ensure mr-bridge` ve sonrasına `ensure redm-vineyard` ekle
+4. `server.cfg`'ye `ensure ns-lib` ve sonrasına `ensure ns-vineyard` ekle
 5. Sunucuyu restart et
 
 ## Items (envanterine ekle)
@@ -101,7 +101,7 @@ client (her oyuncu kendi propunu görür)
   └ barrel.lua       — slot props, kova ekle + topla prompt + DrawText3D quality
 
 server (DB + validation)
-  ├ db.lua           — SQL queries (Bridge.Query)
+  ├ db.lua           — SQL queries (NSLib.Query)
   ├ main.lua         — lifecycle, OnPlayerLoaded, sync push
   ├ vineyard.lua     — UnlockCell, HarvestVine (mutex + dist + time check)
   ├ press.lua        — PressGrapes (cooldown + dist check)
@@ -132,10 +132,10 @@ A: `Config.VineModelEmpty` / `Config.VineModelRipe` hash'lerini kendi RedM build
 A: RedM `LITERAL_STRING` ile UTF-8 destekler ama bazı font'lar uyumsuz. `SetTextFontForCurrentCommand(0)` yerine `(2)` veya `(9)` dene.
 
 **Q: Pres'i ücretli yapmak istiyorum**
-A: `server/press.lua`'da `Bridge.RemoveMoney` çağrısı ekle, config'e `PressCost` koy.
+A: `server/press.lua`'da `NSLib.RemoveMoney` çağrısı ekle, config'e `PressCost` koy.
 
 **Q: ox_inventory metadata'lı tek wine item istiyorum**
-A: `config.lua`'da `Config.Items.wineQ`'yu tek isime çevir, `server/barrel.lua`'da `CollectWine`'da `Bridge.AddItem(source, 'wine', amount, { quality = quality })` yap. README'deki 5 item'i tek `wine`'a indir.
+A: `config.lua`'da `Config.Items.wineQ`'yu tek isime çevir, `server/barrel.lua`'da `CollectWine`'da `NSLib.AddItem(source, 'wine', amount, { quality = quality })` yap. README'deki 5 item'i tek `wine`'a indir.
 
 ## License
 

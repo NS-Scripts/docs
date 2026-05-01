@@ -1,4 +1,4 @@
-# Convention'lar
+﻿# Convention'lar
 
 Bu org'daki tüm script'lerin uyduğu kod ve yapı standartları.
 
@@ -81,11 +81,11 @@ Config.Messages = {
 
 ## Bridge zorunluluğu
 
-**Tüm script'ler** `mr-bridge` üzerinden çalışır. Yasaklar:
+**Tüm script'ler** `ns-lib` üzerinden çalışır. Yasaklar:
 
 - `exports.vorp_core`, `exports['rsg-core']`, `exports['qb-core']`, `exports['es_extended']` — direkt çağrılmaz
-- `MySQL.*` — direkt kullanılmaz, `Bridge.Query/Execute/...`
-- `lib.notify` direkt çağrı — `Bridge.Notify` (zaten ox_lib'i tercih eder)
+- `MySQL.*` — direkt kullanılmaz, `NSLib.Query/Execute/...`
+- `lib.notify` direkt çağrı — `NSLib.Notify` (zaten ox_lib'i tercih eder)
 - Framework-spesifik player object field'larına dokunma
 
 İhtiyacın olan bir Bridge fonksiyonu yoksa, Bridge'e eklenir — script'e değil.
@@ -97,17 +97,17 @@ fx_version 'cerulean'
 game 'rdr3'   -- veya 'gta5'
 rdr3_warning '...'
 
-author 'Mr-RedM-Scripts'
+author 'NS-Scripts'
 description '<...>'
 version '0.1.0'
-repository 'https://github.com/Mr-RedM-Scripts/<resource-adı>'
+repository 'https://github.com/NS-Scripts/<resource-adı>'
 
 lua54 'yes'
 
-dependency 'mr-bridge'
+dependency 'ns-lib'
 
 shared_scripts {
-    '@mr-bridge/lib/init.lua',
+    '@ns-lib/lib/init.lua',
     'config.lua',
     'shared/*.lua',
 }
@@ -117,7 +117,7 @@ server_scripts { 'server/*.lua' }
 
 ## GitHub workflow
 
-- Her script ayrı **private** repo (Mr-RedM-Scripts org'da)
+- Her script ayrı **private** repo (NS-Scripts org'da)
 - `mr-claude-setup` ve **`docs`** repo'ları public istisna
 - Script'in README'si docs site'a yansır (`/sync-docs <script>`)
 - Kod stili: imperative present-tense commit mesajları

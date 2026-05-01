@@ -1,8 +1,8 @@
-# Mr-RedM-Scripts Docs
+﻿# NS-Scripts Docs
 
-Documentation site for the [Mr-RedM-Scripts](https://github.com/Mr-RedM-Scripts) FiveM/RedM script ecosystem.
+Documentation site for the [NS-Scripts](https://github.com/NS-Scripts) FiveM/RedM script ecosystem.
 
-🌐 **Live site:** https://mr-redm-scripts.github.io/docs/
+🌐 **Live site:** https://ns-scripts.github.io/docs/
 
 Built with [VitePress](https://vitepress.dev/). Deployed automatically to GitHub Pages on every push to `main`.
 
@@ -45,13 +45,13 @@ docs/
 │   ├── bridge.md
 │   └── conventions.md
 └── scripts/
-    ├── mr-bridge.md          # synced from Mr-RedM-Scripts/mr-bridge/README.md
-    └── redm-vineyard.md      # synced from Mr-RedM-Scripts/redm-vineyard/README.md
+    ├── ns-lib.md          # synced from NS-Scripts/ns-lib/README.md
+    └── ns-vineyard.md      # synced from NS-Scripts/ns-vineyard/README.md
 ```
 
 ## Why this repo is public
 
-GitHub Pages requires the source repo to be public on the free plan. Documentation is also intended to be publicly accessible — readers shouldn't need org membership. All other Mr-RedM-Scripts repos remain private.
+GitHub Pages requires the source repo to be public on the free plan. Documentation is also intended to be publicly accessible — readers shouldn't need org membership. All other NS-Scripts repos remain private.
 
 ## License
 

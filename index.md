@@ -1,8 +1,8 @@
----
+﻿---
 layout: home
 
 hero:
-  name: "Mr-RedM-Scripts"
+  name: "NS-Scripts"
   text: "FiveM ve RedM script ekosistemi"
   tagline: Cross-framework, modüler, üretime hazır script kütüphanesi
   actions:
@@ -11,18 +11,18 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: GitHub
-      link: https://github.com/Mr-RedM-Scripts
+      link: https://github.com/NS-Scripts
 
 features:
   - icon: 🔗
-    title: mr-bridge
+    title: ns-lib
     details: VORP, RSG-Core, RedEM:RP, ESX, QBCore — hepsi tek API. Otomatik framework tespiti, adapter pattern.
-    link: /scripts/mr-bridge
+    link: /scripts/ns-lib
     linkText: Detay
   - icon: 🍇
-    title: redm-vineyard
+    title: ns-vineyard
     details: 3×3 bağ tarlası, üzüm yetiştirme, pres, fıçılı şarap dinlendirme (kalite 1-5).
-    link: /scripts/redm-vineyard
+    link: /scripts/ns-vineyard
     linkText: Detay
   - icon: 🏗️
     title: Convention'lar

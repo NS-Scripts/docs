@@ -1,6 +1,6 @@
-# Bridge mimarisi
+﻿# Bridge mimarisi
 
-`mr-bridge`, FiveM/RedM script'lerinin framework-bağımsız çalışmasını sağlayan bir abstraction layer.
+`ns-lib`, FiveM/RedM script'lerinin framework-bağımsız çalışmasını sağlayan bir abstraction layer.
 
 ## Neden Bridge?
 
@@ -12,7 +12,7 @@ Aynı script'i VORP, RSG-Core, ESX, QBCore'da çalıştırmak istediğinde her b
 | Item ekle | `exports.vorp_inventory:addItem(src, 'item', 1)` | `Player.Functions.AddItem('item', 1)` | `xPlayer.addInventoryItem('item', 1)` |
 | Player veri | `Core.getUser(src).getUsedCharacter` | `RSGCore.Functions.GetPlayer(src)` | `ESX.GetPlayerFromId(src)` |
 
-Bridge bu farkları kapatır. Tüm scriptler `Bridge.AddMoney(src, 'cash', 100)` yazar ve hangi framework'ün çalıştığının önemi olmaz.
+Bridge bu farkları kapatır. Tüm scriptler `NSLib.AddMoney(src, 'cash', 100)` yazar ve hangi framework'ün çalıştığının önemi olmaz.
 
 ## Auto-detection
 
@@ -29,13 +29,13 @@ sql:       oxmysql → mysql-async
 ## Adapter pattern
 
 ```
-mr-bridge/adapters/
+ns-lib/adapters/
 ├── framework/      vorp.lua, rsg.lua, redemrp.lua, esx.lua, qbcore.lua
 ├── inventory/      ox.lua, vorp.lua, rsg.lua, qb.lua, esx.lua, redemrp.lua
 └── sql/            oxmysql.lua, mysql-async.lua
 ```
 
-Her adapter aynı interface'i implement eder. Bridge runtime'da hangi adapter'ı yükleyeceğine karar verir, `Bridge._fw / _inv / _db` slot'larına yerleştirir. Public API çağrıları (`Bridge.GetPlayer`, `Bridge.AddItem`, vb.) bu slot'lardan execute olur.
+Her adapter aynı interface'i implement eder. Bridge runtime'da hangi adapter'ı yükleyeceğine karar verir, `NSLib._fw / _inv / _db` slot'larına yerleştirir. Public API çağrıları (`NSLib.GetPlayer`, `NSLib.AddItem`, vb.) bu slot'lardan execute olur.
 
 ## Hibrit entegrasyon: `@-import` + `exports`
 
@@ -45,17 +45,17 @@ Dependent script `fxmanifest.lua`'da iki yol seçebilir:
 
 ```lua
 shared_scripts {
-    '@mr-bridge/lib/init.lua',     -- Bridge global'i kurar
+    '@ns-lib/lib/init.lua',     -- Bridge global'i kurar
     -- ...
 }
 ```
 
-`Bridge.X(...)` direkt fonksiyon çağrısı olur, tight loop'larda hızlı.
+`NSLib.X(...)` direkt fonksiyon çağrısı olur, tight loop'larda hızlı.
 
 ### Cross-resource yol — `exports`
 
 ```lua
-exports['mr-bridge']:AddItem(source, 'wine', 1)
+exports['ns-lib']:AddItem(source, 'wine', 1)
 ```
 
 Daha yavaşça (~10x msgpack overhead) ama bridge'i kullanmadığını sezdirmez.
@@ -75,16 +75,16 @@ Client'ta ihtiyacın varsa server'a `TriggerServerEvent` ile sor, server Bridge 
 
 Client'tan güvenle çağrılabilenler:
 
-- `Bridge.Notify(_, msg, type, duration)` — lokal bildirim göster
-- `Bridge.OnPlayerLoaded`, `OnPlayerLogout`, `OnJobChange` — event subscribe
-- `Bridge.framework`, `Bridge.inventory`, `Bridge.sql` — server'dan push edilmiş info
+- `NSLib.Notify(_, msg, type, duration)` — lokal bildirim göster
+- `NSLib.OnPlayerLoaded`, `OnPlayerLogout`, `OnJobChange` — event subscribe
+- `NSLib.framework`, `NSLib.inventory`, `NSLib.sql` — server'dan push edilmiş info
 
 ## Versioning
 
-Bridge `Bridge.VERSION` ve `Bridge.RequireMinVersion(major)` sunar. Dependent script'ler API garantisi için minimum sürüm zorlayabilir:
+Bridge `NSLib.VERSION` ve `NSLib.RequireMinVersion(major)` sunar. Dependent script'ler API garantisi için minimum sürüm zorlayabilir:
 
 ```lua
-Bridge.RequireMinVersion(1)
+NSLib.RequireMinVersion(1)
 ```
 
 API breaking change yapılırsa major version bump eder, dependent'lar güncellemeyi bilir.

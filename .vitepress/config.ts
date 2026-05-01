@@ -1,12 +1,12 @@
-import { defineConfig } from 'vitepress'
+﻿import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'tr-TR',
-  title: 'Mr-RedM-Scripts',
+  title: 'NS-Scripts',
   description: 'FiveM ve RedM script dokümantasyonu',
 
-  // Repo serves at https://mr-redm-scripts.github.io/docs/
+  // Repo serves at https://ns-scripts.github.io/docs/
   base: '/docs/',
   cleanUrls: true,
 
@@ -32,8 +32,8 @@ export default defineConfig({
       {
         text: 'Scriptler',
         items: [
-          { text: 'mr-bridge', link: '/scripts/mr-bridge' },
-          { text: 'redm-vineyard', link: '/scripts/redm-vineyard' },
+          { text: 'ns-lib', link: '/scripts/ns-lib' },
+          { text: 'ns-vineyard', link: '/scripts/ns-vineyard' },
         ],
       },
     ],
@@ -53,25 +53,25 @@ export default defineConfig({
         {
           text: 'Altyapı',
           items: [
-            { text: 'mr-bridge', link: '/scripts/mr-bridge' },
+            { text: 'ns-lib', link: '/scripts/ns-lib' },
           ],
         },
         {
           text: 'Resource\'lar',
           items: [
-            { text: 'redm-vineyard', link: '/scripts/redm-vineyard' },
+            { text: 'ns-vineyard', link: '/scripts/ns-vineyard' },
           ],
         },
       ],
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Mr-RedM-Scripts' },
+      { icon: 'github', link: 'https://github.com/NS-Scripts' },
     ],
 
     footer: {
       message: 'MIT lisansı altında yayınlanmıştır.',
-      copyright: 'Mr-RedM-Scripts',
+      copyright: 'NS-Scripts',
     },
 
     search: {

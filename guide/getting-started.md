@@ -1,19 +1,19 @@
-# Genel bakış
+﻿# Genel bakış
 
-**Mr-RedM-Scripts**, FiveM ve RedM (RDR3) sunucuları için cross-framework çalışan bir script ekosistemi. Hedef: tek kod tabanı VORP, RSG-Core, RedEM:RP, ESX ve QBCore'da değiştirmeden çalışsın.
+**NS-Scripts**, FiveM ve RedM (RDR3) sunucuları için cross-framework çalışan bir script ekosistemi. Hedef: tek kod tabanı VORP, RSG-Core, RedEM:RP, ESX ve QBCore'da değiştirmeden çalışsın.
 
-## Çekirdek bileşen: `mr-bridge`
+## Çekirdek bileşen: `ns-lib`
 
-Her script `mr-bridge` resource'una bağımlıdır. Bridge başlangıçta hangi framework'ün, inventory sisteminin ve SQL driver'ının çalıştığını otomatik tespit eder ve uygun adapter'ı yükler. Script kodu sadece `Bridge.X(...)` çağrılarını kullanır:
+Her script `ns-lib` resource'una bağımlıdır. Bridge başlangıçta hangi framework'ün, inventory sisteminin ve SQL driver'ının çalıştığını otomatik tespit eder ve uygun adapter'ı yükler. Script kodu sadece `NSLib.X(...)` çağrılarını kullanır:
 
 ```lua
-Bridge.OnPlayerLoaded(function(source, player)
+NSLib.OnPlayerLoaded(function(source, player)
     -- player.identifier, .money.cash, .job.name — framework-bağımsız
 end)
 
-if Bridge.HasItem(source, 'shovel', 1) then
-    Bridge.AddItem(source, 'grape', 5)
-    Bridge.Notify(source, '5 üzüm topladın', 'success')
+if NSLib.HasItem(source, 'shovel', 1) then
+    NSLib.AddItem(source, 'grape', 5)
+    NSLib.Notify(source, '5 üzüm topladın', 'success')
 end
 ```
 
@@ -21,27 +21,27 @@ Hangi framework çalıştığının bilinmesi gerekmez.
 
 ## Sunucu kurulumu
 
-1. Mr-RedM-Scripts org'undan istediğin script'i clone'la (her biri ayrı repo):
+1. NS-Scripts org'undan istediğin script'i clone'la (her biri ayrı repo):
    ```bash
    cd resources
-   git clone https://github.com/Mr-RedM-Scripts/mr-bridge.git
-   git clone https://github.com/Mr-RedM-Scripts/redm-vineyard.git
+   git clone https://github.com/NS-Scripts/ns-lib.git
+   git clone https://github.com/NS-Scripts/ns-vineyard.git
    ```
-2. `server.cfg`'ye **sırayla** ekle (mr-bridge önce):
+2. `server.cfg`'ye **sırayla** ekle (ns-lib önce):
    ```cfg
-   ensure mr-bridge
-   ensure redm-vineyard
+   ensure ns-lib
+   ensure ns-vineyard
    ```
 3. Her script'in README'sindeki SQL ve item kayıtlarını uygula
 4. Sunucuyu restart et — console'da:
    ```
-   [mr-bridge] v1.0.0 initialized
-   [mr-bridge] framework=vorp | inventory=vorp | sql=oxmysql
-   [mr-bridge] adapters loaded ✓
+   [ns-lib] v1.0.0 initialized
+   [ns-lib] framework=vorp | inventory=vorp | sql=oxmysql
+   [ns-lib] adapters loaded ✓
    ```
 
 ## Sıradaki
 
 - [Bridge mimarisi →](./bridge) — adapter pattern, API yüzeyi, runtime detection
 - [Convention'lar →](./conventions) — kod stili, klasör yapısı, namespace mantığı
-- [Scriptler →](/scripts/mr-bridge) — her script'in detaylı dokümantasyonu
+- [Scriptler →](/scripts/ns-lib) — her script'in detaylı dokümantasyonu
