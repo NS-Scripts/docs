@@ -33,6 +33,7 @@ export default defineConfig({
         text: 'Scriptler',
         items: [
           { text: 'ns-lib', link: '/scripts/ns-lib' },
+          { text: 'ns-kits', link: '/scripts/ns-kits' },
           { text: 'ns-vineyard', link: '/scripts/ns-vineyard' },
         ],
       },
@@ -59,6 +60,7 @@ export default defineConfig({
         {
           text: 'Resource\'lar',
           items: [
+            { text: 'ns-kits', link: '/scripts/ns-kits' },
             { text: 'ns-vineyard', link: '/scripts/ns-vineyard' },
           ],
         },
