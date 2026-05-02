@@ -8,28 +8,28 @@ Western (RDR2) styled kit menu for RedM. Players open the menu with the `/kit` c
 
 ### Free (no role required)
 
-| ID | Cooldown | Description |
+| ID | Cooldown | Contents |
 |---|---|---|
-| `starter` | **once per character** | New character starter pack — revolver ammo, bandages, peaches, $50 |
-| `daily` | 24 hours | Daily provisions — beans, salmon, coffee, $25 |
-| `weekly` | 7 days | Weekly stockpile — repeater ammo, bandages, herbal tonic, $150 |
+| `starter` | **once per character** | Revolver ammo ×8, bandage ×3, peach ×2, $50 |
+| `daily` | 24 hours | Kidney beans ×2, salmon can ×2, coffee ×1, $25 |
+| `weekly` | 7 days | Repeater ×8, repeater express ×8, bandage ×5, herbal tonic ×3, $150 |
 
 ### Discord-gated
 
-| ID | Required role | Cooldown | Description |
+| ID | Required role | Cooldown | Contents |
 |---|---|---|---|
-| `discord` | `member` | 7 days | Reward for verified Discord members — $200 + supplies |
-| `streamer` | `streamer` | 7 days | Reward for approved content creators — $250 + supplies |
-| `booster` | `booster` | 7 days | Reward for Discord Server Boosters — $500 + premium supplies |
+| `discord` | `member` | 7 days | Haycube ×5, bandage ×3, meat stew ×2, $200 |
+| `streamer` | `streamer` | 7 days | Revolver express ×8, bandage ×5, herbal tonic ×2, coffee ×2, $250 |
+| `booster` | `booster` | 7 days | Rifle express ×8, rifle explosive ×8, bandage ×5, herbal tonic ×3, wine ×2, $500 |
 
 ### Donator tiers (Discord-gated)
 
-| ID | Required role | Cooldown | Description |
+| ID | Required role | Cooldown | Contents |
 |---|---|---|---|
-| `vip` | `vip` | 7 days | VIP supporter cache — $300 + supplies |
-| `gold` | `gold` | 7 days | Gold member crate — $400 + premium supplies |
-| `premium` | `premium` | 7 days | Premium trove — $600 + rifle ammo + supplies |
-| `diamond` | `diamond` | 7 days | Diamond vault, top tier — $1000 + full supply load |
+| `vip` | `vip` | 7 days | Revolver express ×8, bandage ×3, herbal tonic ×2, coffee ×2, $300 |
+| `gold` | `gold` | 7 days | Repeater ×8, repeater express ×8, bandage ×5, herbal tonic ×2, wine ×1, $400 |
+| `premium` | `premium` | 7 days | Rifle express ×8, rifle explosive ×8, bandage ×5, herbal tonic ×3, wine ×2, $600 |
+| `diamond` | `diamond` | 7 days | Rifle express ×8, rifle explosive ×8, rifle velocity ×8, bandage ×5, herbal tonic ×3, wine ×3, meat stew ×2, $1000 |
 
 Disable any kit you don't offer by setting `enabled = false` in `config.lua` — it'll be hidden in the menu and server-side claims will be rejected.
 
