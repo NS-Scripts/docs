@@ -1,23 +1,57 @@
 # ns-kits
 
-Western (RDR2) styled kit menu for RedM. Players open the menu with the `/kit` chat command and claim from one of six kit categories.
+Western (RDR2) styled kit menu for RedM. Players open the menu with the `/kit` chat command and claim from one of ten kit categories — three free, three Discord-gated, four donator tiers.
 
 > **Support / Community:** [discord.gg/UyyngemnF8](https://discord.gg/UyyngemnF8) — bug reports, feature requests, server invite.
 
 ## Kits
 
-| ID | Audience | Cooldown | Description |
+### Free (no role required)
+
+| ID | Cooldown | Description |
+|---|---|---|
+| `starter` | **once per character** | New character starter pack — revolver ammo, bandages, peaches, $50 |
+| `daily` | 24 hours | Daily provisions — beans, salmon, coffee, $25 |
+| `weekly` | 7 days | Weekly stockpile — repeater ammo, bandages, herbal tonic, $150 |
+
+### Discord-gated
+
+| ID | Required role | Cooldown | Description |
 |---|---|---|---|
-| `starter` | everyone | **once per character** | New character starter pack |
-| `daily` | everyone | 24 hours | Daily provisions |
-| `weekly` | everyone | 7 days | Weekly stockpile |
-| `discord` | Discord member role | 7 days | Reward for verified Discord members |
-| `streamer` | Discord streamer role | 7 days | Reward for approved content creators |
-| `booster` | Discord booster role | 7 days | Reward for Discord Server Boosters |
+| `discord` | `member` | 7 days | Reward for verified Discord members — $200 + supplies |
+| `streamer` | `streamer` | 7 days | Reward for approved content creators — $250 + supplies |
+| `booster` | `booster` | 7 days | Reward for Discord Server Boosters — $500 + premium supplies |
+
+### Donator tiers (Discord-gated)
+
+| ID | Required role | Cooldown | Description |
+|---|---|---|---|
+| `vip` | `vip` | 7 days | VIP supporter cache — $300 + supplies |
+| `gold` | `gold` | 7 days | Gold member crate — $400 + premium supplies |
+| `premium` | `premium` | 7 days | Premium trove — $600 + rifle ammo + supplies |
+| `diamond` | `diamond` | 7 days | Diamond vault, top tier — $1000 + full supply load |
+
+Disable any kit you don't offer by setting `enabled = false` in `config.lua` — it'll be hidden in the menu and server-side claims will be rejected.
 
 ## Adding / removing kits
 
 Open **`config.lua`** and edit the `Config.Kits = { ... }` table at the bottom. The block right above that table has a copy-paste template, a field reference, and notes on how to remove a kit cleanly. After editing, run `restart ns-kits` in-game — no build step required.
+
+Available `icon` values (SVG icons shipped in `html/kit-menu.jsx`):
+
+```
+Starter | Daily | Weekly | Discord | Streamer | Booster
+VIP | Gold | Premium | Diamond
+```
+
+Available `accent` values (card rail colors, defined in `html/styles.css`):
+
+```
+gold | amber | discord | rust | streamer
+vip | gold-tier | premium | diamond
+```
+
+To add a new icon, see [`html/README.md`](html/README.md) → "Add a new icon".
 
 ## Running on RSG / QBCore / ESX / RedEM:RP
 
@@ -45,18 +79,33 @@ The kits ship with VORP item keys (e.g. `ammorevolvernormal`, `consumable_peach`
    ensure ns-lib
    ensure ns-kits
    ```
-4. **For Discord-gated kits**, fill in the `Config.Discord` block in `config.lua`:
-   - `BotToken`, `GuildId`, `Roles.member`, `Roles.booster`
-   - Set `Enabled = true`
-5. **Replace placeholder item names** — search `config.lua` for `TODO` comments and map them to your VORP item database.
+4. **Discord bot** — token + guild ID are configured **once** in `ns-lib` (see [ns-lib README §7](https://ns-scripts.github.io/docs/scripts/ns-lib#7-discord-server-only)) and shared by every dependent script. ns-kits only needs role IDs.
+5. **For Discord-gated kits**, fill in the role IDs in `Config.Discord.Roles` in `config.lua` (see below). Set `Enabled = true` to enable role checks.
+6. **Replace item names if not on VORP** — see [Running on RSG / QBCore / ESX / RedEM:RP](#running-on-rsg--qbcore--esx--redemrp).
 
-## Discord bot setup
+## Discord role setup
 
-1. https://discord.com/developers/applications → New Application → Bot → Reset Token (copy it)
-2. OAuth2 → URL Generator → scope `bot`, permission `Read Messages` → open the URL → invite the bot to your server
-3. Enable Developer Mode in your Discord client settings
-4. Right-click your server → Copy Server ID → paste into `Config.Discord.GuildId`
-5. Server Settings → Roles → right-click each role → Copy Role ID → paste into `Config.Discord.Roles.member` and `Config.Discord.Roles.booster`
+The bot itself lives in ns-lib. ns-kits only maps **role IDs → kit gates**. Configure as many or as few as you sell on your server — disable kits you don't use with `enabled = false`.
+
+1. Discord → Settings → Advanced → enable Developer Mode (if not already).
+2. Server Settings → Roles → right-click each role → Copy Role ID.
+3. Paste into `Config.Discord.Roles` in `config.lua`:
+   ```lua
+   Config.Discord = {
+       Enabled = true,
+       Roles = {
+           member   = 'ROLE_ID',   -- discord kit
+           booster  = 'ROLE_ID',   -- booster kit
+           streamer = 'ROLE_ID',   -- streamer kit
+           vip      = 'ROLE_ID',   -- vip kit
+           gold     = 'ROLE_ID',   -- gold kit
+           premium  = 'ROLE_ID',   -- premium kit
+           diamond  = 'ROLE_ID',   -- diamond kit
+       },
+   }
+   ```
+
+If you don't run a tier (e.g. no `gold` rank on your server), set the corresponding kit's `enabled = false` in `Config.Kits` instead of leaving a junk role ID.
 
 ## Testing
 
