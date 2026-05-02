@@ -16,6 +16,8 @@ export default defineConfig({
     /^\.\/.+\.lua$/,
     /^\.\/sql\//,
     /^\.\/config\.lua$/,
+    /^\.\/html\//,
+    /^html\/README/,
   ],
 
   head: [
