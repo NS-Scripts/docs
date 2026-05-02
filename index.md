@@ -19,6 +19,11 @@ features:
     details: VORP, RSG-Core, RedEM:RP, ESX, QBCore — hepsi tek API. Otomatik framework tespiti, adapter pattern.
     link: /scripts/ns-lib
     linkText: Detay
+  - icon: 🎁
+    title: ns-kits
+    details: Western temalı kit menüsü. Starter / daily / weekly + Discord rol bazlı (member, streamer, booster) kitler.
+    link: /scripts/ns-kits
+    linkText: Detay
   - icon: 🍇
     title: ns-vineyard
     details: 3×3 bağ tarlası, üzüm yetiştirme, pres, fıçılı şarap dinlendirme (kalite 1-5).
