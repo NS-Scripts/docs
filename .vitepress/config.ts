@@ -23,6 +23,26 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/docs/logo.png' }],
     ['meta', { name: 'theme-color', content: '#7c2d12' }],
+
+    // Open Graph — controls the preview card on Discord, Slack, Twitter,
+    // Facebook, etc. The og:image MUST be an absolute URL; relative
+    // paths are silently ignored by every social crawler. The logo lives
+    // at /docs/logo.png on the live site, so we hard-code the full URL.
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'NS-Development' }],
+    ['meta', { property: 'og:title', content: 'NS-Development' }],
+    ['meta', { property: 'og:description', content: 'Cross-framework FiveM and RedM script ecosystem — VORP, RSG-Core, RedEM:RP, ESX, QBCore.' }],
+    ['meta', { property: 'og:url', content: 'https://ns-developments.github.io/docs/' }],
+    ['meta', { property: 'og:image', content: 'https://ns-developments.github.io/docs/logo.png' }],
+    ['meta', { property: 'og:image:width', content: '1254' }],
+    ['meta', { property: 'og:image:height', content: '1254' }],
+    ['meta', { property: 'og:image:alt', content: 'NS-Development logo' }],
+
+    // Twitter card (also picked up by Discord as a fallback / supplement)
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'NS-Development' }],
+    ['meta', { name: 'twitter:description', content: 'Cross-framework FiveM and RedM script ecosystem.' }],
+    ['meta', { name: 'twitter:image', content: 'https://ns-developments.github.io/docs/logo.png' }],
   ],
 
   markdown: {
