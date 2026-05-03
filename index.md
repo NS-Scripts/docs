@@ -32,6 +32,7 @@ For full setup details, open the [ns-lib](/scripts/ns-lib) page in the sidebar.
 ### Resources
 
 - **[ns-kits](/scripts/ns-kits)** — Western-themed kit menu. 10 kits across three tiers: free (starter / daily / weekly), Discord-gated (member, streamer, booster), and donator (vip, gold, premium, diamond).
+- **[ns-loadingscreen](/scripts/ns-loadingscreen)** — RDR2-themed loading screen. Rotating backgrounds, in-screen music player, server rules panel, rotating tips, Discord/website buttons.
 - **[ns-vineyard](/scripts/ns-vineyard)** — 3×3 vineyard plots, grape farming, press machine, barrel-aged wine system (quality 1-5).
 
 ## Conventions

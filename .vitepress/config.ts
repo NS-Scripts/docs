@@ -83,6 +83,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'ns-kits', link: '/scripts/ns-kits' },
+          { text: 'ns-loadingscreen', link: '/scripts/ns-loadingscreen' },
           { text: 'ns-vineyard', link: '/scripts/ns-vineyard' },
         ],
       },
