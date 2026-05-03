@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'tr-TR',
-  title: 'NS-Scripts',
-  description: 'FiveM ve RedM script dokümantasyonu',
+  title: 'NS-Development',
+  description: 'NS-Development — FiveM ve RedM script dokümantasyonu',
 
   // Repo serves at https://ns-scripts.github.io/docs/
   base: '/docs/',
@@ -21,53 +21,44 @@ export default defineConfig({
   ],
 
   head: [
-    ['link', { rel: 'icon', href: '/docs/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/docs/logo.png' }],
     ['meta', { name: 'theme-color', content: '#7c2d12' }],
   ],
 
   themeConfig: {
-    logo: undefined, // bir logo eklendiğinde '/logo.svg'
+    logo: '/logo.png',
+    siteTitle: 'NS-Development',
 
-    nav: [
-      { text: 'Ana sayfa', link: '/' },
-      { text: 'Başlangıç', link: '/guide/getting-started' },
+    // No top nav — GitBook-style sidebar-first navigation. The sidebar
+    // below is registered globally so every page (including '/') shows it.
+    nav: [],
+
+    sidebar: [
       {
-        text: 'Scriptler',
+        text: 'Başlangıç',
+        collapsed: false,
+        items: [
+          { text: 'Genel bakış', link: '/guide/getting-started' },
+          { text: 'Bridge mimarisi', link: '/guide/bridge' },
+          { text: 'Convention\'lar', link: '/guide/conventions' },
+        ],
+      },
+      {
+        text: 'Altyapı',
+        collapsed: false,
         items: [
           { text: 'ns-lib', link: '/scripts/ns-lib' },
+        ],
+      },
+      {
+        text: 'Resource\'lar',
+        collapsed: false,
+        items: [
           { text: 'ns-kits', link: '/scripts/ns-kits' },
           { text: 'ns-vineyard', link: '/scripts/ns-vineyard' },
         ],
       },
     ],
-
-    sidebar: {
-      '/guide/': [
-        {
-          text: 'Başlangıç',
-          items: [
-            { text: 'Genel bakış', link: '/guide/getting-started' },
-            { text: 'Bridge mimarisi', link: '/guide/bridge' },
-            { text: 'Convention\'lar', link: '/guide/conventions' },
-          ],
-        },
-      ],
-      '/scripts/': [
-        {
-          text: 'Altyapı',
-          items: [
-            { text: 'ns-lib', link: '/scripts/ns-lib' },
-          ],
-        },
-        {
-          text: 'Resource\'lar',
-          items: [
-            { text: 'ns-kits', link: '/scripts/ns-kits' },
-            { text: 'ns-vineyard', link: '/scripts/ns-vineyard' },
-          ],
-        },
-      ],
-    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/NS-Scripts' },
@@ -75,7 +66,7 @@ export default defineConfig({
 
     footer: {
       message: 'MIT lisansı altında yayınlanmıştır.',
-      copyright: 'NS-Scripts',
+      copyright: 'NS-Development',
     },
 
     search: {

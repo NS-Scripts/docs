@@ -2,9 +2,12 @@
 layout: home
 
 hero:
-  name: "NS-Scripts"
+  name: "NS-Development"
   text: "FiveM ve RedM script ekosistemi"
   tagline: Cross-framework, modüler, üretime hazır script kütüphanesi
+  image:
+    src: /logo.png
+    alt: NS-Development
   actions:
     - theme: brand
       text: Başla
