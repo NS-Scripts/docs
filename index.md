@@ -4,11 +4,11 @@ title: NS-Development
 
 # NS-Development
 
-FiveM ve RedM (RDR3) sunucuları için cross-framework çalışan, modüler, üretime hazır script ekosistemi. Tek kod tabanı **VORP, RSG-Core, RedEM:RP, ESX ve QBCore**'da değiştirilmeden çalışır.
+A cross-framework, modular, production-ready script ecosystem for **FiveM** and **RedM** (RDR3) servers. The same codebase runs unchanged on **VORP, RSG-Core, RedEM:RP, ESX, and QBCore**.
 
-> **🔗 Çekirdek:** Her script `ns-lib` üzerinden framework'e bağlanır. Hangi framework'ün yüklü olduğunu bilmesi gerekmez — `NSLib.X(...)` çağrıları runtime'da doğru adapter'a yönlenir.
+> **🔗 Core:** Every script depends on `ns-lib`, which detects the active framework, inventory system, and SQL driver at runtime. Your code only ever calls `NSLib.X(...)` — adapters route the call to the right implementation.
 
-## Hızlı başlangıç
+## Quick start
 
 ```bash
 cd resources
@@ -21,24 +21,24 @@ ensure ns-lib
 ensure ns-kits
 ```
 
-Detaylı kurulum: [Genel bakış](/guide/getting-started)
+For full setup details, open the [ns-lib](/scripts/ns-lib) page in the sidebar.
 
-## Scriptler
+## Scripts
 
-### Altyapı
+### Core
 
-- **[ns-lib](/scripts/ns-lib)** — Cross-framework abstraction layer. VORP/RSG/RedEM/ESX/QB için tek API; oxmysql/mysql-async; Discord, permissions, teleport, blip & ped helperları.
+- **[ns-lib](/scripts/ns-lib)** — Cross-framework abstraction layer. One unified API for VORP/RSG/RedEM/ESX/QB. SQL via oxmysql/mysql-async. Built-in helpers for Discord, permissions, teleport, blips, and peds.
 
-### Resource'lar
+### Resources
 
-- **[ns-kits](/scripts/ns-kits)** — Western temalı kit menüsü. 10 kit: starter / daily / weekly + Discord rol bazlı (member, streamer, booster) + 4 donator tier (vip, gold, premium, diamond).
-- **[ns-vineyard](/scripts/ns-vineyard)** — 3×3 bağ tarlası, üzüm yetiştirme, pres makinesi, fıçılı şarap dinlendirme (kalite 1-5).
+- **[ns-kits](/scripts/ns-kits)** — Western-themed kit menu. 10 kits across three tiers: free (starter / daily / weekly), Discord-gated (member, streamer, booster), and donator (vip, gold, premium, diamond).
+- **[ns-vineyard](/scripts/ns-vineyard)** — 3×3 vineyard plots, grape farming, press machine, barrel-aged wine system (quality 1-5).
 
-## Standartlar
+## Conventions
 
-Tüm scriptler aynı klasör yapısı, naming convention, module pattern ve config formatına uyar — bir script okunduğunda diğeri de tanıdık gelir. Detay: [Convention'lar](/guide/conventions).
+Every script follows the same folder layout, naming convention, module pattern, and config format — once you've read one, the rest feel familiar.
 
-## Topluluk
+## Community
 
 - **GitHub:** [NS-Developments](https://github.com/NS-Developments)
-- **Discord:** [discord.gg/UyyngemnF8](https://discord.gg/UyyngemnF8) — bug raporu, özellik talebi, sunucu daveti
+- **Discord:** [discord.gg/UyyngemnF8](https://discord.gg/UyyngemnF8) — bug reports, feature requests, server invites

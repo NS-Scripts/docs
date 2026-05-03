@@ -2,9 +2,9 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  lang: 'tr-TR',
+  lang: 'en-US',
   title: 'NS-Development',
-  description: 'NS-Development — FiveM ve RedM script dokümantasyonu',
+  description: 'NS-Development — FiveM and RedM script documentation',
 
   // Repo serves at https://ns-developments.github.io/docs/
   base: '/docs/',
@@ -25,6 +25,23 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#7c2d12' }],
   ],
 
+  markdown: {
+    // Custom slugify mirrors GitHub's anchor algorithm exactly. VitePress's
+    // default prepends '_' to slugs starting with a digit (legacy HTML4 rule),
+    // which breaks links like #7-discord-server-only that READMEs use to point
+    // at numbered sections. Our slugify keeps the digit, matching GitHub.
+    anchor: {
+      slugify: (str: string) =>
+        str
+          .toLowerCase()
+          .trim()
+          .replace(/[\s_]+/g, '-')      // spaces & underscores → hyphen
+          .replace(/[^\w\-]+/g, '')     // strip everything except word chars and hyphens
+          .replace(/--+/g, '-')         // collapse runs of hyphens
+          .replace(/^-+|-+$/g, ''),     // trim leading/trailing hyphens
+    },
+  },
+
   themeConfig: {
     logo: '/logo.png',
     siteTitle: 'NS-Development',
@@ -35,23 +52,14 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Başlangıç',
-        collapsed: false,
-        items: [
-          { text: 'Genel bakış', link: '/guide/getting-started' },
-          { text: 'Bridge mimarisi', link: '/guide/bridge' },
-          { text: 'Convention\'lar', link: '/guide/conventions' },
-        ],
-      },
-      {
-        text: 'Altyapı',
+        text: 'Core',
         collapsed: false,
         items: [
           { text: 'ns-lib', link: '/scripts/ns-lib' },
         ],
       },
       {
-        text: 'Resource\'lar',
+        text: 'Resources',
         collapsed: false,
         items: [
           { text: 'ns-kits', link: '/scripts/ns-kits' },
@@ -75,33 +83,17 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'MIT lisansı altında yayınlanmıştır.',
+      message: 'Released under the MIT License.',
       copyright: 'NS-Development',
     },
 
     search: {
       provider: 'local',
-      options: {
-        translations: {
-          button: { buttonText: 'Ara', buttonAriaLabel: 'Ara' },
-          modal: {
-            displayDetails: 'Detayları göster',
-            resetButtonTitle: 'Sıfırla',
-            backButtonTitle: 'Geri',
-            noResultsText: 'Sonuç yok',
-            footer: {
-              selectText: 'seç',
-              navigateText: 'gez',
-              closeText: 'kapat',
-            },
-          },
-        },
-      },
     },
 
-    outline: { label: 'Bu sayfada' },
-    docFooter: { prev: 'Önceki', next: 'Sonraki' },
-    lastUpdated: { text: 'Son güncelleme', formatOptions: { dateStyle: 'medium' } },
+    outline: { label: 'On this page' },
+    docFooter: { prev: 'Previous', next: 'Next' },
+    lastUpdated: { text: 'Last updated', formatOptions: { dateStyle: 'medium' } },
   },
 
   lastUpdated: true,
