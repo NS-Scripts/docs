@@ -28,7 +28,7 @@ ns-loadingscreen/
     ├── config.js           # All user-facing configuration
     └── assets/
         ├── audio/music.mp3
-        └── images/bg1.jpg ... bg7.jpg
+        └── images/bg*.jpg                # rotating background images
 ```
 
 ## Configuration
