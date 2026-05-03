@@ -6,7 +6,7 @@ export default defineConfig({
   title: 'NS-Development',
   description: 'NS-Development — FiveM ve RedM script dokümantasyonu',
 
-  // Repo serves at https://ns-scripts.github.io/docs/
+  // Repo serves at https://ns-developments.github.io/docs/
   base: '/docs/',
   cleanUrls: true,
 
@@ -71,7 +71,7 @@ export default defineConfig({
         link: 'https://example.com',
         ariaLabel: 'Store',
       },
-      { icon: 'github', link: 'https://github.com/NS-Scripts' },
+      { icon: 'github', link: 'https://github.com/NS-Developments' },
     ],
 
     footer: {

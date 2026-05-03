@@ -1,8 +1,8 @@
-# NS-Scripts Docs
+# NS-Development Docs
 
-Documentation site for the [NS-Scripts](https://github.com/NS-Scripts) FiveM/RedM script ecosystem.
+Documentation site for the [NS-Development](https://github.com/NS-Developments) FiveM/RedM script ecosystem.
 
-🌐 **Live site:** https://ns-scripts.github.io/docs/
+🌐 **Live site:** https://ns-developments.github.io/docs/
 
 Built with [VitePress](https://vitepress.dev/). Deployed automatically to GitHub Pages on every push to `main`.
 
@@ -45,13 +45,13 @@ docs/
 │   ├── bridge.md
 │   └── conventions.md
 └── scripts/
-    ├── ns-lib.md          # synced from NS-Scripts/ns-lib/README.md
-    └── ns-vineyard.md      # synced from NS-Scripts/ns-vineyard/README.md
+    ├── ns-lib.md          # synced from NS-Developments/ns-lib/README.md
+    └── ns-vineyard.md      # synced from NS-Developments/ns-vineyard/README.md
 ```
 
 ## Why this repo is public
 
-GitHub Pages requires the source repo to be public on the free plan. Documentation is also intended to be publicly accessible — readers shouldn't need org membership. All other NS-Scripts repos remain private.
+GitHub Pages requires the source repo to be public on the free plan. Documentation is also intended to be publicly accessible — readers shouldn't need org membership. All other NS-Developments repos remain private.
 
 ## License
 
