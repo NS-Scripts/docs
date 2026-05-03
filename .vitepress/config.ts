@@ -21,12 +21,12 @@ export default defineConfig({
   ],
 
   head: [
-    ['link', { rel: 'icon', href: '/docs/logo.png' }],
+    ['link', { rel: 'icon', href: '/docs/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#7c2d12' }],
   ],
 
   themeConfig: {
-    logo: '/logo.png',
+    // logo: '/logo.png',  // TODO: real logo file from user
     siteTitle: 'NS-Development',
 
     // No top nav — GitBook-style sidebar-first navigation. The sidebar
