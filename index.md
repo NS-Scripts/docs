@@ -1,40 +1,44 @@
 ---
-layout: home
-
-hero:
-  name: "NS-Development"
-  text: "FiveM ve RedM script ekosistemi"
-  tagline: Cross-framework, modüler, üretime hazır script kütüphanesi
-  image:
-    src: /logo.png
-    alt: NS-Development
-  actions:
-    - theme: brand
-      text: Başla
-      link: /guide/getting-started
-    - theme: alt
-      text: GitHub
-      link: https://github.com/NS-Developments
-
-features:
-  - icon: 🔗
-    title: ns-lib
-    details: VORP, RSG-Core, RedEM:RP, ESX, QBCore — hepsi tek API. Otomatik framework tespiti, adapter pattern.
-    link: /scripts/ns-lib
-    linkText: Detay
-  - icon: 🎁
-    title: ns-kits
-    details: Western temalı kit menüsü. Starter / daily / weekly + Discord rol bazlı (member, streamer, booster) kitler.
-    link: /scripts/ns-kits
-    linkText: Detay
-  - icon: 🍇
-    title: ns-vineyard
-    details: 3×3 bağ tarlası, üzüm yetiştirme, pres, fıçılı şarap dinlendirme (kalite 1-5).
-    link: /scripts/ns-vineyard
-    linkText: Detay
-  - icon: 🏗️
-    title: Convention'lar
-    details: Layered klasör, PascalCase fonksiyon, hibrit module pattern. Tüm scriptler aynı standart.
-    link: /guide/conventions
-    linkText: Detay
+title: NS-Development
 ---
+
+# NS-Development
+
+FiveM ve RedM (RDR3) sunucuları için cross-framework çalışan, modüler, üretime hazır script ekosistemi. Tek kod tabanı **VORP, RSG-Core, RedEM:RP, ESX ve QBCore**'da değiştirilmeden çalışır.
+
+> **🔗 Çekirdek:** Her script `ns-lib` üzerinden framework'e bağlanır. Hangi framework'ün yüklü olduğunu bilmesi gerekmez — `NSLib.X(...)` çağrıları runtime'da doğru adapter'a yönlenir.
+
+## Hızlı başlangıç
+
+```bash
+cd resources
+git clone https://github.com/NS-Developments/ns-lib.git
+git clone https://github.com/NS-Developments/ns-kits.git
+```
+
+```cfg
+ensure ns-lib
+ensure ns-kits
+```
+
+Detaylı kurulum: [Genel bakış](/guide/getting-started)
+
+## Scriptler
+
+### Altyapı
+
+- **[ns-lib](/scripts/ns-lib)** — Cross-framework abstraction layer. VORP/RSG/RedEM/ESX/QB için tek API; oxmysql/mysql-async; Discord, permissions, teleport, blip & ped helperları.
+
+### Resource'lar
+
+- **[ns-kits](/scripts/ns-kits)** — Western temalı kit menüsü. 10 kit: starter / daily / weekly + Discord rol bazlı (member, streamer, booster) + 4 donator tier (vip, gold, premium, diamond).
+- **[ns-vineyard](/scripts/ns-vineyard)** — 3×3 bağ tarlası, üzüm yetiştirme, pres makinesi, fıçılı şarap dinlendirme (kalite 1-5).
+
+## Standartlar
+
+Tüm scriptler aynı klasör yapısı, naming convention, module pattern ve config formatına uyar — bir script okunduğunda diğeri de tanıdık gelir. Detay: [Convention'lar](/guide/conventions).
+
+## Topluluk
+
+- **GitHub:** [NS-Developments](https://github.com/NS-Developments)
+- **Discord:** [discord.gg/UyyngemnF8](https://discord.gg/UyyngemnF8) — bug raporu, özellik talebi, sunucu daveti
